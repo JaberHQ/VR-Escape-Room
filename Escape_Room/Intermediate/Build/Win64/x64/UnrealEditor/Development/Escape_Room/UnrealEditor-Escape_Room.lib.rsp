@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-Escape_Room.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\Escape_RoomEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\Escape_Room.cpp.obj"
+"C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\PerModuleInline.gen.cpp.obj"
+"C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\Default.rc2.res"
+/OUT:"C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\UnrealEditor-Escape_Room.lib"
