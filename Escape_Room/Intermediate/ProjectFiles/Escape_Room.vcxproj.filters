@@ -11,16 +11,11 @@
     <None Include="..\..\Source\Escape_RoomEditor.Target.cs">
       <Filter>Source</Filter>
     </None>
+    <None Include="..\..\.vsconfig" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
-    <None Include="..\..\Config\DefaultEditor.ini">
-      <Filter>Config</Filter>
-    </None>
     <None Include="..\..\Config\DefaultEngine.ini">
-      <Filter>Config</Filter>
-    </None>
-    <None Include="..\..\Config\DefaultGame.ini">
       <Filter>Config</Filter>
     </None>
     <None Include="..\..\Config\DefaultInput.ini">
@@ -29,6 +24,12 @@
     <Filter Include="Source\Escape_Room">
       <UniqueIdentifier>{5BC3583C-9255-3A1E-BDC2-5C9A336026FD}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\Escape_Room\Character_Controller.cpp">
+      <Filter>Source\Escape_Room</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Escape_Room\Character_Controller.h">
+      <Filter>Source\Escape_Room</Filter>
+    </ClCompile>
     <None Include="..\..\Source\Escape_Room\Escape_Room.Build.cs">
       <Filter>Source\Escape_Room</Filter>
     </None>

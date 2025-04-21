@@ -21,7 +21,7 @@
 /ALTERNATENAME:__imp___std_init_once_complete=__imp_InitOnceComplete
 /DELAYLOAD:"d3d12.dll"
 /DELAYLOAD:"DBGHELP.DLL"
-/LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\lib\x64"
+/LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\lib\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\ucrt\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22621.0\um\x64"
 /NODEFAULTLIB:"LIBCMT"
@@ -37,12 +37,15 @@
 /FUNCTIONPADMIN:6
 /NOIMPLIB
 "C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\Escape_RoomEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\Character_Controller.gen.cpp.obj"
+"C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\Escape_Room.init.gen.cpp.obj"
+"C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\Character_Controller.cpp.obj"
 "C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\Escape_Room.cpp.obj"
 "C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\PerModuleInline.gen.cpp.obj"
 "C:\Users\Jaber\Documents\GitHub\VR-Escape-Room\Escape_Room\Intermediate\Build\Win64\x64\UnrealEditor\Development\Escape_Room\Default.rc2.res"
+"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\CoreUObject\UnrealEditor-CoreUObject.lib"
-"..\Intermediate\Build\Win64\x64\UnrealEditor\Development\Engine\UnrealEditor-Engine.lib"
 "..\Intermediate\Build\Win64\x64\UnrealEditor\Development\InputCore\UnrealEditor-InputCore.lib"
 "..\Plugins\EnhancedInput\Intermediate\Build\Win64\x64\UnrealEditor\Development\EnhancedInput\UnrealEditor-EnhancedInput.lib"
 "delayimp.lib"
