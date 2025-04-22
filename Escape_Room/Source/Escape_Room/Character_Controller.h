@@ -8,7 +8,47 @@
 #include "GameFramework/Character.h"
 #include "Components/InputComponent.h"
 #include "InputActionValue.h"
+#include "Engine/DataTable.h"
+#include "Engine/World.h"
+#include "Escape_RoomGameModeBase.h"
+#include "Item.h"
+#include "Components/SphereComponent.h"
 #include "Character_Controller.generated.h"
+
+
+USTRUCT(BlueprintType)
+struct FInventoryItem : public FTableRowBase
+{
+	GENERATED_BODY()
+
+public:
+	FInventoryItem()
+	{
+		name = FText::FromString("item");
+		isVisible = false;
+	}
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FName itemID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<class AItem> ItemToCompare;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FText name;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool isVisible;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* image;
+
+	bool operator==(const FInventoryItem& item) const
+	{
+		return itemID == item.itemID ? true : false;
+	}
+
+};
 
 UCLASS()
 class ESCAPE_ROOM_API ACharacter_Controller : public ACharacter
@@ -27,6 +67,15 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION(BlueprintCallable, Category = "Items")
+	void Collect();
+
+	UFUNCTION()
+	void InventoryPlus();
+
+	UFUNCTION()
+	void InventoryMinus();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -40,6 +89,15 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* MoveAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* InteractionAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* InventoryPlusAction;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* InventoryMinusAction;
+
 protected:
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
@@ -47,4 +105,35 @@ protected:
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
+	UFUNCTION(BlueprintCallable, Category = "Utilities")
+	void AddToInventory(FName itemID);
+
+	UFUNCTION(BlueprintCallable, Category = "Utilities")
+	void RemoveFromInventory();
+	
+	UFUNCTION()
+	void Wielding();
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	TArray<FInventoryItem> InventoryItems;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int InventoryIndex;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* CollectionRange;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FInventoryItem Wield;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FInventoryItem Empty;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FInventoryItem> PickupableObjects;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Wielded Items")
+	TArray<AActor*> WieldObjects;
+
+	FORCEINLINE class USphereComponent* GetCollectionRange() const { return CollectionRange; }
 };

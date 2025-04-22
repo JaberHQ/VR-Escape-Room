@@ -15,6 +15,9 @@
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
     <None Include="..\..\Config\DefaultEngine.ini">
       <Filter>Config</Filter>
     </None>
@@ -37,6 +40,18 @@
       <Filter>Source\Escape_Room</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Escape_Room\Escape_Room.h">
+      <Filter>Source\Escape_Room</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Escape_Room\Escape_RoomGameModeBase.cpp">
+      <Filter>Source\Escape_Room</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Escape_Room\Escape_RoomGameModeBase.h">
+      <Filter>Source\Escape_Room</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Escape_Room\Item.cpp">
+      <Filter>Source\Escape_Room</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Escape_Room\Item.h">
       <Filter>Source\Escape_Room</Filter>
     </ClCompile>
   </ItemGroup>

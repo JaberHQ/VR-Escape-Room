@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\jaber\\documents\\github\\vr-escape-room\\escape_room\\source\\escape_room\\item.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\jaber\\documents\\github\\vr-escape-room\\escape_room\\intermediate\\build\\win64\\x64\\escape_roomeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\jaber\\documents\\github\\vr-escape-room\\escape_room\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\escape_room\\definitions.escape_room.h",
+            "c:\\users\\jaber\\documents\\github\\vr-escape-room\\escape_room\\source\\escape_room\\item.h",
+            "c:\\users\\jaber\\documents\\github\\vr-escape-room\\escape_room\\intermediate\\build\\win64\\unrealeditor\\inc\\escape_room\\uht\\item.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -4,13 +4,20 @@
 #include "Character_Controller.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
-
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ACharacter_Controller::ACharacter_Controller()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
+
+	InventoryIndex = 0;
+	Empty.itemID = "4";
+
+	CollectionRange = CreateDefaultSubobject<USphereComponent>(TEXT("CollectionRange"));
+	CollectionRange->SetupAttachment(RootComponent);
+	CollectionRange->SetSphereRadius(100.0f);
 
 }
 
@@ -27,25 +34,22 @@ void ACharacter_Controller::BeginPlay()
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
-}
 
-// Called every frame
-void ACharacter_Controller::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
+	for(int i = 0; i < WieldObjects.Num(); i++)
+	{
+		if(WieldObjects[i])
+		{
+			WieldObjects[i]->SetActorHiddenInGame(true);
+		}
+	}
 }
 
 // Called to bind functionality to input
 void ACharacter_Controller::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
-	/*Super::SetupPlayerInputComponent(PlayerInputComponent);
+	/*Super::SetupPlayerInputComponent(PlayerInputComponent); */
 
-	InputComponent->BindAxis("MoveX", this, &ACharacter_Controller::VerticalMovement);
-	InputComponent->BindAxis("MoveY", this, &ACharacter_Controller::HorizontalMovement);
-
-	InputComponent->BindAxis("CameraSide", this, &ACharacter_Controller::AddControllerYawInput);
-	InputComponent->BindAxis("CameraUp", this, &ACharacter_Controller::AddControllerPitchInput);*/
+	
 	if(UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
 	{
 		//Moving
@@ -53,6 +57,11 @@ void ACharacter_Controller::SetupPlayerInputComponent(UInputComponent* PlayerInp
 
 		//Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ACharacter_Controller::Look);
+
+		EnhancedInputComponent->BindAction(InteractionAction,ETriggerEvent::Triggered, this, &ACharacter_Controller::Collect);
+		EnhancedInputComponent->BindAction(InventoryPlusAction, ETriggerEvent::Triggered, this, &ACharacter_Controller::InventoryPlus);
+		EnhancedInputComponent->BindAction(InventoryMinusAction, ETriggerEvent::Triggered, this, &ACharacter_Controller::InventoryMinus);
+
 	}
 
 }
@@ -80,5 +89,122 @@ void ACharacter_Controller::Look(const FInputActionValue& Value)
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
+	}
+}
+
+void ACharacter_Controller::Collect()
+{
+	if(GEngine)
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Collect!"));
+	TArray<AActor*> collectedItems;
+	CollectionRange->GetOverlappingActors(collectedItems);
+
+	for(int i = 0; i < collectedItems.Num(); i++)
+	{
+		AItem* const testItem = Cast<AItem>(collectedItems[i]);
+		if(testItem && testItem->GetActive())
+		{
+			testItem->Touched();
+			AddToInventory(testItem->itemID);
+			testItem->SetActive(false);
+		}
+	}
+}
+
+void ACharacter_Controller::InventoryPlus()
+{
+	InventoryIndex++;
+
+	if(InventoryIndex >= 5)
+		InventoryIndex = 0;
+
+	Wielding();
+}
+
+void ACharacter_Controller::InventoryMinus()
+{
+	InventoryIndex--;
+
+	if(InventoryIndex < 0)
+		InventoryIndex = 4;
+
+	Wielding();
+}
+
+// Called every frame
+void ACharacter_Controller::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+}
+
+
+void ACharacter_Controller::AddToInventory(FName itemID)
+{
+	AEscape_RoomGameModeBase* gameMode = Cast<AEscape_RoomGameModeBase>(GetWorld()->GetAuthGameMode());
+	UDataTable* itemTable = gameMode->GetItemDB();
+
+	if(gameMode)
+	{
+		if(itemTable)
+		{
+			FInventoryItem* itemAdded = itemTable->FindRow<FInventoryItem>(itemID, "");
+			if(itemAdded)
+			{
+				InventoryItems.Add(*itemAdded);
+				Wielding();
+			}
+		}
+	}
+}
+
+void ACharacter_Controller::RemoveFromInventory()
+{
+	if(InventoryItems.Num() > InventoryIndex)
+	{
+		InventoryItems.RemoveAt(InventoryIndex);
+		Wielding();
+	}
+}
+
+void ACharacter_Controller::Wielding()
+{
+	if(InventoryItems.Num() > InventoryIndex)
+	{
+		Wield = InventoryItems[InventoryIndex];
+		if(&Wield)
+		{
+			FString wieldValue = Wield.itemID.ToString();
+			int wieldIndex = FCString::Atoi(*wieldValue);
+			for(int i = 0; i < PickupableObjects.Num();i++)
+			{
+				if(Wield.itemID == PickupableObjects[i].itemID)
+				{
+					if(WieldObjects[wieldIndex])
+					{
+						WieldObjects[wieldIndex]->SetActorHiddenInGame(false);
+					}
+				}
+				else
+				{
+					if(WieldObjects[i])
+					{
+						WieldObjects[i]->SetActorHiddenInGame(true);
+					}
+				}
+			}
+		}
+		else
+		{
+			Wield = Empty;
+		}
+
+		if(Wield == Empty)
+		{
+			for(int i = 0; i < PickupableObjects.Num(); i++)
+			{
+				WieldObjects[i]->SetActorHiddenInGame(true);
+			}
+		}
 	}
 }
