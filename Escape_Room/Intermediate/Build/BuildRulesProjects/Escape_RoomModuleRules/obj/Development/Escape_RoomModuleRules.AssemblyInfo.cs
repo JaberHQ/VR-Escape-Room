@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Escape_RoomModuleRules")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Development")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bdbf7749e835bb0f645cc81e5cdab75d2410fbc0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aaa92a905310aab220bff56bff19987786251ca1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Escape_RoomModuleRules")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Escape_RoomModuleRules")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

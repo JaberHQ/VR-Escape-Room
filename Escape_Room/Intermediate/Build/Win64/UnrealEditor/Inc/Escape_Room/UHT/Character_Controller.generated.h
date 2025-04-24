@@ -23,6 +23,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> ESCAPE_ROOM_API UScriptStruct* StaticStruct<struct FInventoryItem>();
 
 #define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_56_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetRecentlyRemoved); \
+	DECLARE_FUNCTION(execGetRecentlyPickedUp); \
 	DECLARE_FUNCTION(execWielding); \
 	DECLARE_FUNCTION(execRemoveFromInventory); \
 	DECLARE_FUNCTION(execAddToInventory); \

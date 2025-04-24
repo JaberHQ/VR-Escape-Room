@@ -63,6 +63,8 @@ public:
 	// Sets default values for this character's properties
 	ACharacter_Controller();
 
+	
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -98,6 +100,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* InventoryMinusAction;
 
+	UPROPERTY(EditAnywhere)
+	bool BlacklightTriggerBoxActive;
 protected:
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
@@ -111,8 +115,14 @@ protected:
 	UFUNCTION(BlueprintCallable, Category = "Utilities")
 	void RemoveFromInventory();
 	
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void Wielding();
+
+	UFUNCTION(BlueprintCallable)
+	bool GetRecentlyPickedUp();
+
+	UFUNCTION(BlueprintCallable)
+	bool GetRecentlyRemoved();
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TArray<FInventoryItem> InventoryItems;
@@ -135,5 +145,15 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Wielded Items")
 	TArray<AActor*> WieldObjects;
 
+	UPROPERTY( EditAnywhere, BlueprintReadWrite)
+	bool RecentlyPickedUp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool RecentlyRemoved;
+
+	
+
+
 	FORCEINLINE class USphereComponent* GetCollectionRange() const { return CollectionRange; }
 };
+

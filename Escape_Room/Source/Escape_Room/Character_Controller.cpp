@@ -10,7 +10,7 @@
 ACharacter_Controller::ACharacter_Controller()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = false;
+	PrimaryActorTick.bCanEverTick = true;
 
 	InventoryIndex = 0;
 	Empty.itemID = "4";
@@ -94,8 +94,8 @@ void ACharacter_Controller::Look(const FInputActionValue& Value)
 
 void ACharacter_Controller::Collect()
 {
-	if(GEngine)
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Collect!"));
+	/*if(GEngine)
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Collect!"));*/
 	TArray<AActor*> collectedItems;
 	CollectionRange->GetOverlappingActors(collectedItems);
 
@@ -153,6 +153,7 @@ void ACharacter_Controller::AddToInventory(FName itemID)
 			{
 				InventoryItems.Add(*itemAdded);
 				Wielding();
+				RecentlyPickedUp = true;
 			}
 		}
 	}
@@ -169,6 +170,7 @@ void ACharacter_Controller::RemoveFromInventory()
 
 void ACharacter_Controller::Wielding()
 {
+	BlacklightTriggerBoxActive = false;
 	if(InventoryItems.Num() > InventoryIndex)
 	{
 		Wield = InventoryItems[InventoryIndex];
@@ -182,6 +184,10 @@ void ACharacter_Controller::Wielding()
 				{
 					if(WieldObjects[wieldIndex])
 					{
+						if(wieldIndex == 0)
+						{
+							BlacklightTriggerBoxActive = true;
+						}
 						WieldObjects[wieldIndex]->SetActorHiddenInGame(false);
 					}
 				}
@@ -207,4 +213,14 @@ void ACharacter_Controller::Wielding()
 			}
 		}
 	}
+}
+
+bool ACharacter_Controller::GetRecentlyPickedUp()
+{
+	return RecentlyPickedUp;
+}
+
+bool ACharacter_Controller::GetRecentlyRemoved()
+{
+	return RecentlyRemoved;
 }
