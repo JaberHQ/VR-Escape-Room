@@ -14,13 +14,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ESCAPE_ROOM_Item_generated_h
 
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Users_Jaber_OneDrive_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execTouched); \
 	DECLARE_FUNCTION(execSetActive); \
 	DECLARE_FUNCTION(execGetActive);
 
 
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_INCLASS_NO_PURE_DECLS \
+#define FID_Users_Jaber_OneDrive_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAItem(); \
 	friend struct Z_Construct_UClass_AItem_Statics; \
@@ -29,7 +29,7 @@ public: \
 	DECLARE_SERIALIZER(AItem)
 
 
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_ENHANCED_CONSTRUCTORS \
+#define FID_Users_Jaber_OneDrive_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AItem(AItem&&); \
@@ -41,13 +41,13 @@ public: \
 	NO_API virtual ~AItem();
 
 
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_10_PROLOG
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_GENERATED_BODY \
+#define FID_Users_Jaber_OneDrive_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_10_PROLOG
+#define FID_Users_Jaber_OneDrive_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_INCLASS_NO_PURE_DECLS \
-	FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_ENHANCED_CONSTRUCTORS \
+	FID_Users_Jaber_OneDrive_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_Jaber_OneDrive_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_INCLASS_NO_PURE_DECLS \
+	FID_Users_Jaber_OneDrive_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_13_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -55,7 +55,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> ESCAPE_ROOM_API UClass* StaticClass<class AItem>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h
+#define CURRENT_FILE_ID FID_Users_Jaber_OneDrive_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

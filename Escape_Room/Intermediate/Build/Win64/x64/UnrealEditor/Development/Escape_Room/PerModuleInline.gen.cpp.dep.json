@@ -1,11 +1,11 @@
 {
     "Version": "1.2",
     "Data": {
-        "Source": "c:\\users\\jaber\\documents\\github\\vr-escape-room\\escape_room\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\escape_room\\permoduleinline.gen.cpp",
+        "Source": "c:\\users\\jaber\\onedrive\\documents\\github\\vr-escape-room\\escape_room\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\escape_room\\permoduleinline.gen.cpp",
         "ProvidedModule": "",
-        "PCH": "c:\\users\\jaber\\documents\\github\\vr-escape-room\\escape_room\\intermediate\\build\\win64\\x64\\escape_roomeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "PCH": "c:\\users\\jaber\\onedrive\\documents\\github\\vr-escape-room\\escape_room\\intermediate\\build\\win64\\x64\\escape_roomeditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
         "Includes": [
-            "c:\\users\\jaber\\documents\\github\\vr-escape-room\\escape_room\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\escape_room\\definitions.escape_room.h",
+            "c:\\users\\jaber\\onedrive\\documents\\github\\vr-escape-room\\escape_room\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\escape_room\\definitions.escape_room.h",
             "c:\\program files\\epic games\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
         ],
         "ImportedModules": [],
