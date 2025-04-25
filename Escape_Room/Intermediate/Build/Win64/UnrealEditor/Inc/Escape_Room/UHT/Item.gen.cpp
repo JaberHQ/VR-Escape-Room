@@ -172,6 +172,10 @@ struct Z_Construct_UClass_AItem_Statics
 		{ "Category", "Item" },
 		{ "ModuleRelativePath", "Item.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_isVisible_MetaData[] = {
+		{ "Category", "Item" },
+		{ "ModuleRelativePath", "Item.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_itemMesh_MetaData[] = {
 		{ "Category", "Item" },
 		{ "EditInline", "true" },
@@ -180,6 +184,8 @@ struct Z_Construct_UClass_AItem_Statics
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FStrPropertyParams NewProp_name;
 	static const UECodeGen_Private::FNamePropertyParams NewProp_itemID;
+	static void NewProp_isVisible_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_isVisible;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_itemMesh;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -196,10 +202,16 @@ struct Z_Construct_UClass_AItem_Statics
 };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AItem_Statics::NewProp_name = { "name", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AItem, name), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_name_MetaData), NewProp_name_MetaData) };
 const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_AItem_Statics::NewProp_itemID = { "itemID", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AItem, itemID), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_itemID_MetaData), NewProp_itemID_MetaData) };
+void Z_Construct_UClass_AItem_Statics::NewProp_isVisible_SetBit(void* Obj)
+{
+	((AItem*)Obj)->isVisible = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AItem_Statics::NewProp_isVisible = { "isVisible", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AItem), &Z_Construct_UClass_AItem_Statics::NewProp_isVisible_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_isVisible_MetaData), NewProp_isVisible_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AItem_Statics::NewProp_itemMesh = { "itemMesh", nullptr, (EPropertyFlags)0x00400000000a0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AItem, itemMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_itemMesh_MetaData), NewProp_itemMesh_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AItem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_name,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_itemID,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_isVisible,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AItem_Statics::NewProp_itemMesh,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AItem_Statics::PropPointers) < 2048);
@@ -243,10 +255,10 @@ AItem::~AItem() {}
 struct Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AItem, AItem::StaticClass, TEXT("AItem"), &Z_Registration_Info_UClass_AItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItem), 3455685614U) },
+		{ Z_Construct_UClass_AItem, AItem::StaticClass, TEXT("AItem"), &Z_Registration_Info_UClass_AItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AItem), 793444058U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_3546551817(TEXT("/Script/Escape_Room"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_251293567(TEXT("/Script/Escape_Room"),
 	Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Item_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -102,19 +102,31 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	bool BlacklightTriggerBoxActive;
-protected:
-	/** Called for movement input */
-	void Move(const FInputActionValue& Value);
 
-	/** Called for looking input */
-	void Look(const FInputActionValue& Value);
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool RecentlyPickedUp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool RecentlyRemoved;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FInventoryItem Wield;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FInventoryItem Empty;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FInventoryItem> PickupableObjects;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Wielded Items")
+	TArray<AActor*> WieldObjects;
 
 	UFUNCTION(BlueprintCallable, Category = "Utilities")
 	void AddToInventory(FName itemID);
 
 	UFUNCTION(BlueprintCallable, Category = "Utilities")
 	void RemoveFromInventory();
-	
+
 	UFUNCTION(BlueprintCallable)
 	void Wielding();
 
@@ -129,28 +141,21 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int InventoryIndex;
+protected:
+	/** Called for movement input */
+	void Move(const FInputActionValue& Value);
+
+	/** Called for looking input */
+	void Look(const FInputActionValue& Value);
+
+	
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USphereComponent* CollectionRange;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FInventoryItem Wield;
+	
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FInventoryItem Empty;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<FInventoryItem> PickupableObjects;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Wielded Items")
-	TArray<AActor*> WieldObjects;
-
-	UPROPERTY( EditAnywhere, BlueprintReadWrite)
-	bool RecentlyPickedUp;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool RecentlyRemoved;
-
+	
 	
 
 

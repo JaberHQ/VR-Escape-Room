@@ -20,7 +20,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	bool isVisible;
+	
 
 	
 public:	
@@ -44,6 +44,8 @@ public:
 	UPROPERTY(EditDefaultsOnly)
 	FName itemID;
 
+	UPROPERTY(EditAnywhere)
+	bool isVisible;
 	
 private:
 	UPROPERTY(VisibleAnywhere, Category = "Item")

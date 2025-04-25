@@ -15,18 +15,18 @@ void ABlacklightTriggerBox::BeginPlay()
 	Super::BeginPlay();
 }
 
-
 void ABlacklightTriggerBox::IsOverPoster(AActor* overlappedActor, AActor* otherActor)
 {
 	if(otherActor && otherActor != this)
 	{
-		APoster* const tempPost = Cast<APoster>( otherActor );
-		if(tempPost)
+		APoster* const tempPost = Cast<APoster>(otherActor);
+		if(tempPost && GetWorld())
 		{
-			ACharacter_Controller* character = Cast<ACharacter_Controller>(GetWorld()->GetFirstPlayerController()->GetCharacter());
-			if(character)
+			APlayerController* pc = GetWorld()->GetFirstPlayerController();
+			if(pc)
 			{
-				if(character->BlacklightTriggerBoxActive)
+				ACharacter_Controller* character = Cast<ACharacter_Controller>(pc->GetCharacter());
+				if(character && character->BlacklightTriggerBoxActive)
 				{
 					tempPost->SetActorHiddenInGame(true);
 				}
@@ -40,12 +40,13 @@ void ABlacklightTriggerBox::HasLeftPoster(AActor* overlappedActor, AActor* other
 	if(otherActor && otherActor != this)
 	{
 		APoster* const tempPost = Cast<APoster>(otherActor);
-		if(tempPost)
+		if(tempPost && GetWorld())
 		{
-			ACharacter_Controller* character = Cast<ACharacter_Controller>(GetWorld()->GetFirstPlayerController()->GetCharacter());
-			if(character)
+			APlayerController* pc = GetWorld()->GetFirstPlayerController();
+			if(pc)
 			{
-				if(character->BlacklightTriggerBoxActive)
+				ACharacter_Controller* character = Cast<ACharacter_Controller>(pc->GetCharacter());
+				if(character && character->BlacklightTriggerBoxActive)
 				{
 					tempPost->SetActorHiddenInGame(false);
 				}
@@ -53,3 +54,10 @@ void ABlacklightTriggerBox::HasLeftPoster(AActor* overlappedActor, AActor* other
 		}
 	}
 }
+
+//void ABlacklightTriggerBox::EndPlay(const EEndPlayReason::Type EndPlayReason)
+//{
+//	Super::EndPlay(EndPlayReason);
+//
+//	// Unbind delegates or do any cleanup here
+//}

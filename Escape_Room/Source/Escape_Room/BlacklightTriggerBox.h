@@ -29,4 +29,7 @@ public:
 	UFUNCTION()
 	void HasLeftPoster(class AActor* overlappedActor, class AActor* otherActor);
 
+	/*UFUNCTION()
+	void EndPlay(const EEndPlayReason::Type EndPlayReason)*/
+
 };
