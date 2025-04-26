@@ -119,6 +119,7 @@ void ACharacter_Controller::InventoryPlus()
 		InventoryIndex = 0;
 
 	Wielding();
+	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt(InventoryIndex));
 }
 
 void ACharacter_Controller::InventoryMinus()
@@ -129,6 +130,7 @@ void ACharacter_Controller::InventoryMinus()
 		InventoryIndex = 4;
 
 	Wielding();
+	//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::FromInt(InventoryIndex));
 }
 
 // Called every frame
@@ -178,7 +180,7 @@ void ACharacter_Controller::Wielding()
 		{
 			FString wieldValue = Wield.itemID.ToString();
 			int wieldIndex = FCString::Atoi(*wieldValue);
-			for(int i = 0; i < PickupableObjects.Num();i++)
+			for(int i = 0; i < PickupableObjects.Num(); i++)
 			{
 				if(Wield.itemID == PickupableObjects[i].itemID)
 				{

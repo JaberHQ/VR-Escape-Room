@@ -9,18 +9,21 @@ void AStatueTriggerBox::BeginPlay()
 	{
 		AItem* const testItem = Cast<AItem>(statues[i]);
 		if(testItem)
+		{ 
 			testItem->SetActive(false);
+		}
 
 		statues[i]->SetActorHiddenInGame(true);
 	}
 
-	for(int i = 0; i< 3; i++)
+	for(int i = 0; i < 3; i++)
 	{
 		statueAnswers.Add(false);
 	}
 }
 
 AStatueTriggerBox::AStatueTriggerBox()
+	:answer(0), present(false), statues(), removedTimerHandle(), statueAnswers()
 {
 	OnActorBeginOverlap.AddDynamic(this, &AStatueTriggerBox::PlaceIntoBox);
 }
@@ -29,7 +32,7 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 {
 	if(otherActor && otherActor != this)
 	{
-		for( int i = 0; i < statues.Num(); i++)
+		for(int i = 0; i < statues.Num(); i++)
 		{
 			AItem* const testItem = Cast<AItem>(statues[i]);
 			if(testItem)
@@ -40,7 +43,9 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 					break;
 				}
 				else
+				{
 					present = false;
+				}
 			}
 		}
 		if(!present)
@@ -48,11 +53,15 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 			AItem* const tempItem = Cast<AItem>(otherActor);
 			if(tempItem)
 			{
+				GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, otherActor->GetName() );
+
 				ACharacter_Controller* character = Cast<ACharacter_Controller>(GetWorld()->GetFirstPlayerController()->GetCharacter());
 				if(character)
 				{
+					GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Player Detected!"));
 					if(tempItem->name == "Blue Statue" && character->Wield.itemID == "1")
 					{
+						GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("Blue item detected!"));
 						character->RecentlyRemoved = true;
 						character->RemoveFromInventory();
 						GetWorld()->GetTimerManager().SetTimer(removedTimerHandle, this, &AStatueTriggerBox::SetRemovedFalse, 0.01f, false);
@@ -61,12 +70,16 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 							statues[0]->SetActorHiddenInGame(false);
 							AItem* const trueItem = Cast<AItem>(statues[0]);
 							if(trueItem)
+							{
 								trueItem->SetActive(true);
+							}
 						}
 						answer == 1 ? statueAnswers[0] = true : statueAnswers[0] = false;
 					}
 					else if(tempItem->name == "Red Statue" && character->Wield.itemID == "3")
 					{
+						GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Red item detected!"));
+
 						character->RecentlyRemoved = true;
 						character->RemoveFromInventory();
 						GetWorld()->GetTimerManager().SetTimer(removedTimerHandle, this, &AStatueTriggerBox::SetRemovedFalse, 0.01f, false);
@@ -75,12 +88,15 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 							statues[1]->SetActorHiddenInGame(false);
 							AItem* const trueItem = Cast<AItem>(statues[1]);
 							if(trueItem)
+							{
 								trueItem->SetActive(true);
+							}
 						}
 						answer == 2 ? statueAnswers[1] = true : statueAnswers[1] = false;
 					}
 					else if(tempItem->name == "Green Statue" && character->Wield.itemID == "2")
 					{
+						GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Green item detected!"));
 						character->RecentlyRemoved = true;
 						character->RemoveFromInventory();
 						GetWorld()->GetTimerManager().SetTimer(removedTimerHandle, this, &AStatueTriggerBox::SetRemovedFalse, 0.01f, false);
@@ -89,10 +105,14 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 							statues[2]->SetActorHiddenInGame(false);
 							AItem* const trueItem = Cast<AItem>(statues[2]);
 							if(trueItem)
+							{
 								trueItem->SetActive(true);
+							}
 						}
 						answer == 3 ? statueAnswers[2] = true : statueAnswers[2] = false;
 					}
+					GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("Hi Jaber!"));
+
 				}
 			}
 		}
@@ -104,12 +124,14 @@ void AStatueTriggerBox::SetRemovedFalse()
 	ACharacter_Controller* character = Cast<ACharacter_Controller>(GetWorld()->GetFirstPlayerController()->GetCharacter());
 
 	if(character)
+	{
 		character->RecentlyRemoved = false;
+	}
 }
 
 void AStatueTriggerBox::CheckAnswer()
 {
-	if( statueAnswers[0] && statueAnswers[1] && statueAnswers[2])
+	if(statueAnswers[0] && statueAnswers[1] && statueAnswers[2])
 	{
 		UE_LOG(LogClass, Log, TEXT("Solved"));
 	}

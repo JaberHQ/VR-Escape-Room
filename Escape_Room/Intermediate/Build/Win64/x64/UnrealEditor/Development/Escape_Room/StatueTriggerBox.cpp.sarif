@@ -3,7 +3,30 @@
     "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
     "runs": [
         {
-            "results": [],
+            "results": [
+                {
+                    "ruleId": "C5038",
+                    "message": {
+                        "text": "data member 'AStatueTriggerBox::present' will be initialized after data member 'AStatueTriggerBox::statues'"
+                    },
+                    "analysisTarget": {
+                        "uri": "file:///C:/Users/Jaber/Documents/GitHub/VR-Escape-Room/Escape_Room/Source/Escape_Room/StatueTriggerBox.cpp"
+                    },
+                    "locations": [
+                        {
+                            "physicalLocation": {
+                                "artifactLocation": {
+                                    "uri": "file:///C:/Users/Jaber/Documents/GitHub/VR-Escape-Room/Escape_Room/Source/Escape_Room/StatueTriggerBox.cpp"
+                                },
+                                "region": {
+                                    "startLine": 26,
+                                    "startColumn": 14
+                                }
+                            }
+                        }
+                    ]
+                }
+            ],
             "tool": {
                 "driver": {
                     "name": "MSVC",
