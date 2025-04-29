@@ -35,15 +35,12 @@ public:
 	UPROPERTY()
 	bool present;
 
-	UPROPERTY()
-	TArray<bool> statueAnswers;
-
+	
 	UFUNCTION()
 	void PlaceIntoBox(class AActor* overlappedActor, class AActor* otherActor);
 
 	UFUNCTION()
 	void SetRemovedFalse();
 
-	UFUNCTION()
-	void CheckAnswer();
+	
 };

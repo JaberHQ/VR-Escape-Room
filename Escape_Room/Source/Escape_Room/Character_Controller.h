@@ -11,8 +11,10 @@
 #include "Engine/DataTable.h"
 #include "Engine/World.h"
 #include "Escape_RoomGameModeBase.h"
+#include "DoorRotator.h"
 #include "Item.h"
 #include "Components/SphereComponent.h"
+#include "DrawDebugHelpers.h"
 #include "Character_Controller.generated.h"
 
 
@@ -100,6 +102,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	class UInputAction* InventoryMinusAction;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	class UInputAction* RayAction;
+
+	UPROPERTY(EditAnywhere, Category = "Animation")
+	AActor* DoorAnim;
+
+	UPROPERTY(EditAnywhere, Category = "Animation")
+	AActor* FinalDoorAnim;
+
+	UPROPERTY()
+	TArray<int> inputtedCode;
+
 	UPROPERTY(EditAnywhere)
 	bool BlacklightTriggerBoxActive;
 
@@ -141,12 +155,21 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int InventoryIndex;
+
+	UFUNCTION()
+	void CheckAnswer();
+
+	UPROPERTY()
+	TArray<bool> statueAnswers;
+
 protected:
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
+
+	void Raycast();
 
 	
 

@@ -164,6 +164,35 @@ DEFINE_FUNCTION(ACharacter_Controller::execAddToInventory)
 }
 // End Class ACharacter_Controller Function AddToInventory
 
+// Begin Class ACharacter_Controller Function CheckAnswer
+struct Z_Construct_UFunction_ACharacter_Controller_CheckAnswer_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Character_Controller.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ACharacter_Controller_CheckAnswer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ACharacter_Controller, nullptr, "CheckAnswer", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ACharacter_Controller_CheckAnswer_Statics::Function_MetaDataParams), Z_Construct_UFunction_ACharacter_Controller_CheckAnswer_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ACharacter_Controller_CheckAnswer()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ACharacter_Controller_CheckAnswer_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ACharacter_Controller::execCheckAnswer)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->CheckAnswer();
+	P_NATIVE_END;
+}
+// End Class ACharacter_Controller Function CheckAnswer
+
 // Begin Class ACharacter_Controller Function Collect
 struct Z_Construct_UFunction_ACharacter_Controller_Collect_Statics
 {
@@ -409,6 +438,7 @@ void ACharacter_Controller::StaticRegisterNativesACharacter_Controller()
 	UClass* Class = ACharacter_Controller::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "AddToInventory", &ACharacter_Controller::execAddToInventory },
+		{ "CheckAnswer", &ACharacter_Controller::execCheckAnswer },
 		{ "Collect", &ACharacter_Controller::execCollect },
 		{ "GetRecentlyPickedUp", &ACharacter_Controller::execGetRecentlyPickedUp },
 		{ "GetRecentlyRemoved", &ACharacter_Controller::execGetRecentlyRemoved },
@@ -462,6 +492,22 @@ struct Z_Construct_UClass_ACharacter_Controller_Statics
 		{ "Category", "Input" },
 		{ "ModuleRelativePath", "Character_Controller.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_RayAction_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Input" },
+		{ "ModuleRelativePath", "Character_Controller.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DoorAnim_MetaData[] = {
+		{ "Category", "Animation" },
+		{ "ModuleRelativePath", "Character_Controller.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FinalDoorAnim_MetaData[] = {
+		{ "Category", "Animation" },
+		{ "ModuleRelativePath", "Character_Controller.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_inputtedCode_MetaData[] = {
+		{ "ModuleRelativePath", "Character_Controller.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BlacklightTriggerBoxActive_MetaData[] = {
 		{ "Category", "Character_Controller" },
 		{ "ModuleRelativePath", "Character_Controller.h" },
@@ -498,6 +544,9 @@ struct Z_Construct_UClass_ACharacter_Controller_Statics
 		{ "Category", "Character_Controller" },
 		{ "ModuleRelativePath", "Character_Controller.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_statueAnswers_MetaData[] = {
+		{ "ModuleRelativePath", "Character_Controller.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CollectionRange_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
@@ -511,6 +560,11 @@ struct Z_Construct_UClass_ACharacter_Controller_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InteractionAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InventoryPlusAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InventoryMinusAction;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_RayAction;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_DoorAnim;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_FinalDoorAnim;
+	static const UECodeGen_Private::FIntPropertyParams NewProp_inputtedCode_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_inputtedCode;
 	static void NewProp_BlacklightTriggerBoxActive_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_BlacklightTriggerBoxActive;
 	static void NewProp_RecentlyPickedUp_SetBit(void* Obj);
@@ -526,11 +580,14 @@ struct Z_Construct_UClass_ACharacter_Controller_Statics
 	static const UECodeGen_Private::FStructPropertyParams NewProp_InventoryItems_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_InventoryItems;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_InventoryIndex;
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_statueAnswers_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_statueAnswers;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CollectionRange;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ACharacter_Controller_AddToInventory, "AddToInventory" }, // 3133705795
+		{ &Z_Construct_UFunction_ACharacter_Controller_CheckAnswer, "CheckAnswer" }, // 2935662322
 		{ &Z_Construct_UFunction_ACharacter_Controller_Collect, "Collect" }, // 606619795
 		{ &Z_Construct_UFunction_ACharacter_Controller_GetRecentlyPickedUp, "GetRecentlyPickedUp" }, // 514264100
 		{ &Z_Construct_UFunction_ACharacter_Controller_GetRecentlyRemoved, "GetRecentlyRemoved" }, // 870791290
@@ -551,6 +608,11 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacter_Con
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InteractionAction = { "InteractionAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, InteractionAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InteractionAction_MetaData), NewProp_InteractionAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryPlusAction = { "InventoryPlusAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, InventoryPlusAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryPlusAction_MetaData), NewProp_InventoryPlusAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryMinusAction = { "InventoryMinusAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, InventoryMinusAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryMinusAction_MetaData), NewProp_InventoryMinusAction_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_RayAction = { "RayAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, RayAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RayAction_MetaData), NewProp_RayAction_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_DoorAnim = { "DoorAnim", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, DoorAnim), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DoorAnim_MetaData), NewProp_DoorAnim_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_FinalDoorAnim = { "FinalDoorAnim", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, FinalDoorAnim), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FinalDoorAnim_MetaData), NewProp_FinalDoorAnim_MetaData) };
+const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_inputtedCode_Inner = { "inputtedCode", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_inputtedCode = { "inputtedCode", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, inputtedCode), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_inputtedCode_MetaData), NewProp_inputtedCode_MetaData) };
 void Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_BlacklightTriggerBoxActive_SetBit(void* Obj)
 {
 	((ACharacter_Controller*)Obj)->BlacklightTriggerBoxActive = 1;
@@ -575,6 +637,8 @@ const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACharacter_Cont
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryItems_Inner = { "InventoryItems", nullptr, (EPropertyFlags)0x0000000000020000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FInventoryItem, METADATA_PARAMS(0, nullptr) }; // 2137917385
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryItems = { "InventoryItems", nullptr, (EPropertyFlags)0x0010000000020005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, InventoryItems), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryItems_MetaData), NewProp_InventoryItems_MetaData) }; // 2137917385
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryIndex = { "InventoryIndex", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, InventoryIndex), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryIndex_MetaData), NewProp_InventoryIndex_MetaData) };
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_statueAnswers_Inner = { "statueAnswers", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_statueAnswers = { "statueAnswers", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, statueAnswers), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_statueAnswers_MetaData), NewProp_statueAnswers_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_CollectionRange = { "CollectionRange", nullptr, (EPropertyFlags)0x002008000008001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACharacter_Controller, CollectionRange), Z_Construct_UClass_USphereComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CollectionRange_MetaData), NewProp_CollectionRange_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACharacter_Controller_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_DefaultMappingContext,
@@ -583,6 +647,11 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACharacte
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InteractionAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryPlusAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryMinusAction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_RayAction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_DoorAnim,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_FinalDoorAnim,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_inputtedCode_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_inputtedCode,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_BlacklightTriggerBoxActive,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_RecentlyPickedUp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_RecentlyRemoved,
@@ -595,6 +664,8 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACharacte
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryItems_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryItems,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_InventoryIndex,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_statueAnswers_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_statueAnswers,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACharacter_Controller_Statics::NewProp_CollectionRange,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ACharacter_Controller_Statics::PropPointers) < 2048);
@@ -641,10 +712,10 @@ struct Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Esc
 		{ FInventoryItem::StaticStruct, Z_Construct_UScriptStruct_FInventoryItem_Statics::NewStructOps, TEXT("InventoryItem"), &Z_Registration_Info_UScriptStruct_InventoryItem, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInventoryItem), 2137917385U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACharacter_Controller, ACharacter_Controller::StaticClass, TEXT("ACharacter_Controller"), &Z_Registration_Info_UClass_ACharacter_Controller, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacter_Controller), 937496186U) },
+		{ Z_Construct_UClass_ACharacter_Controller, ACharacter_Controller::StaticClass, TEXT("ACharacter_Controller"), &Z_Registration_Info_UClass_ACharacter_Controller, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACharacter_Controller), 881346053U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_1154685297(TEXT("/Script/Escape_Room"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_334628978(TEXT("/Script/Escape_Room"),
 	Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_Statics::ClassInfo),
 	Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_Statics::ScriptStructInfo),
 	nullptr, 0);

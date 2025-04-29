@@ -276,6 +276,12 @@
     <ClCompile Include="..\..\Source\Escape_Room\Character_Controller.h">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Escape_Room\DoorRotator.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Escape_Room\DoorRotator.h">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <None Include="..\..\Source\Escape_Room\Escape_Room.Build.cs"/>
     <ClCompile Include="..\..\Source\Escape_Room\Escape_Room.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

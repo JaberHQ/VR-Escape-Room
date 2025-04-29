@@ -16,7 +16,6 @@ class AActor;
 #define ESCAPE_ROOM_StatueTriggerBox_generated_h
 
 #define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_StatueTriggerBox_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execCheckAnswer); \
 	DECLARE_FUNCTION(execSetRemovedFalse); \
 	DECLARE_FUNCTION(execPlaceIntoBox);
 

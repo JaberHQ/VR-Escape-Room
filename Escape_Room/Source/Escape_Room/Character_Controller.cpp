@@ -42,6 +42,11 @@ void ACharacter_Controller::BeginPlay()
 			WieldObjects[i]->SetActorHiddenInGame(true);
 		}
 	}
+
+	for(int i = 0; i < 3; i++)
+	{
+		statueAnswers.Add(false);
+	}
 }
 
 // Called to bind functionality to input
@@ -61,6 +66,7 @@ void ACharacter_Controller::SetupPlayerInputComponent(UInputComponent* PlayerInp
 		EnhancedInputComponent->BindAction(InteractionAction,ETriggerEvent::Triggered, this, &ACharacter_Controller::Collect);
 		EnhancedInputComponent->BindAction(InventoryPlusAction, ETriggerEvent::Triggered, this, &ACharacter_Controller::InventoryPlus);
 		EnhancedInputComponent->BindAction(InventoryMinusAction, ETriggerEvent::Triggered, this, &ACharacter_Controller::InventoryMinus);
+		EnhancedInputComponent->BindAction(RayAction, ETriggerEvent::Triggered, this, &ACharacter_Controller::Raycast);
 
 	}
 
@@ -90,6 +96,68 @@ void ACharacter_Controller::Look(const FInputActionValue& Value)
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+
+void ACharacter_Controller::Raycast()
+{
+	FHitResult* hit = new FHitResult();
+	FVector forward = GetWorld()->GetFirstPlayerController()->PlayerCameraManager->GetActorForwardVector();
+	FVector start = GetActorLocation();
+	start.Z = 300.0f;
+	FVector end = (forward * 1000.0f) + start;
+	FCollisionQueryParams col = FCollisionQueryParams();
+	col.AddIgnoredActor(this);
+	if(GetWorld()->LineTraceSingleByChannel(*hit, start, end, ECC_WorldStatic, col))
+	{
+		DrawDebugLine(GetWorld(), start, end, FColor::Orange, true);
+		if(hit->GetActor() != nullptr)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, *hit->GetComponent()->GetName());
+			if(*hit->GetComponent()->GetName() == FString("1"))
+			{
+				inputtedCode.Add(1);
+			}
+			else if(*hit->GetComponent()->GetName() == FString("2"))
+			{
+				inputtedCode.Add(2);
+			}
+			else if(*hit->GetComponent()->GetName() == FString("3"))
+			{
+				inputtedCode.Add(3);
+			}
+
+			if(inputtedCode.Num() == 3)
+			{
+				bool correct = false;
+				for(int i = 0; i < inputtedCode.Num(); i++)
+				{
+					if(inputtedCode[i] == i + 1)
+					{
+						correct = true;
+						GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Correct!"));
+
+					}
+					else
+					{
+						correct = false;
+						GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Correct!"));
+						break;
+					}
+				}
+				inputtedCode.Empty();
+				if(correct)
+				{
+					GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Open Sesame!"));
+					ADoorRotator* tempDoor = Cast<ADoorRotator>(FinalDoorAnim);
+					if(tempDoor)
+					{
+						tempDoor->CallAnimation();
+					}
+				}
+			}
+		}
+	}
+
 }
 
 void ACharacter_Controller::Collect()
@@ -228,4 +296,17 @@ bool ACharacter_Controller::GetRecentlyPickedUp()
 bool ACharacter_Controller::GetRecentlyRemoved()
 {
 	return RecentlyRemoved;
+}
+
+void ACharacter_Controller::CheckAnswer()
+{
+	if(statueAnswers[0] && statueAnswers[1] && statueAnswers[2])
+	{
+		ADoorRotator* tempDoor = Cast<ADoorRotator>(DoorAnim);
+		if(tempDoor)
+		{
+			tempDoor->CallAnimation();
+		}
+	}
+
 }

@@ -16,10 +16,7 @@ void AStatueTriggerBox::BeginPlay()
 		statues[i]->SetActorHiddenInGame(true);
 	}
 
-	for(int i = 0; i < 3; i++)
-	{
-		statueAnswers.Add(false);
-	}
+	
 }
 
 AStatueTriggerBox::AStatueTriggerBox()
@@ -60,7 +57,7 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 					//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Player Detected!"));
 					if(tempItem->name == "Blue Statue" && character->Wield.itemID == "1")
 					{
-						GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("Blue item detected!"));
+						//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("Blue item detected!"));
 						character->RecentlyRemoved = true;
 						character->RemoveFromInventory();
 						GetWorld()->GetTimerManager().SetTimer(removedTimerHandle, this, &AStatueTriggerBox::SetRemovedFalse, 0.01f, false);
@@ -73,19 +70,19 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 								trueItem->SetActive(true);
 							}
 						}
-						if (answer == 1)
+						/*if (answer == 1)
 						{
 							statueAnswers[0] = true;
 						}
 						else
 						{
 							statueAnswers[0] = false;
-						}
-						//answer == 1 ? statueAnswers[0] = true : statueAnswers[0] = false;
+						}*/
+						answer == 1 ? character->statueAnswers[0] = true : character->statueAnswers[0] = false;
 					}
 					else if(tempItem->name == "Red Statue" && character->Wield.itemID == "3")
 					{
-						GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Red item detected!"));
+						//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, TEXT("Red item detected!"));
 
 						character->RecentlyRemoved = true;
 						character->RemoveFromInventory();
@@ -99,19 +96,19 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 								trueItem->SetActive(true);
 							}
 						}
-						if(answer == 2)
+						/*if(answer == 2)
 						{
 							statueAnswers[1] = true;
 						}
 						else
 						{
 							statueAnswers[1] = false;
-						}
-						//answer == 2 ? statueAnswers[1] = true : statueAnswers[1] = false;
+						}*/
+						answer == 2 ? character->statueAnswers[1] = true : character->statueAnswers[1] = false;
 					}
 					else if(tempItem->name == "Green Statue" && character->Wield.itemID == "2")
 					{
-						GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Green item detected!"));
+						//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Green item detected!"));
 						character->RecentlyRemoved = true;
 						character->RemoveFromInventory();
 						GetWorld()->GetTimerManager().SetTimer(removedTimerHandle, this, &AStatueTriggerBox::SetRemovedFalse, 0.01f, false);
@@ -124,18 +121,18 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 								trueItem->SetActive(true);
 							}
 						}
-						if(answer == 3)
+						/*if(answer == 3)
 						{
 							statueAnswers[2] = true;
 						}
 						else
 						{
 							statueAnswers[2] = false;
-						}
-						answer == 3 ? statueAnswers[2] = true : statueAnswers[2] = false;
+						}*/
+						answer == 3 ? character->statueAnswers[2] = true : character->statueAnswers[2] = false;
 					}
-					//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("Hi Jaber!"));
-
+					//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("Check Answer!"));
+					character->CheckAnswer();
 				}
 			}
 		}
@@ -152,10 +149,3 @@ void AStatueTriggerBox::SetRemovedFalse()
 	}
 }
 
-void AStatueTriggerBox::CheckAnswer()
-{
-	if(statueAnswers[0] && statueAnswers[1] && statueAnswers[2])
-	{
-		UE_LOG(LogClass, Log, TEXT("Solved"));
-	}
-}

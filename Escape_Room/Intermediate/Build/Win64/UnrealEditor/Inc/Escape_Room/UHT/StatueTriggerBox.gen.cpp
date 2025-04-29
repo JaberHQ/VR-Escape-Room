@@ -19,35 +19,6 @@ ESCAPE_ROOM_API UClass* Z_Construct_UClass_AStatueTriggerBox_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Escape_Room();
 // End Cross Module References
 
-// Begin Class AStatueTriggerBox Function CheckAnswer
-struct Z_Construct_UFunction_AStatueTriggerBox_CheckAnswer_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "StatueTriggerBox.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AStatueTriggerBox_CheckAnswer_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AStatueTriggerBox, nullptr, "CheckAnswer", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AStatueTriggerBox_CheckAnswer_Statics::Function_MetaDataParams), Z_Construct_UFunction_AStatueTriggerBox_CheckAnswer_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AStatueTriggerBox_CheckAnswer()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AStatueTriggerBox_CheckAnswer_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AStatueTriggerBox::execCheckAnswer)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->CheckAnswer();
-	P_NATIVE_END;
-}
-// End Class AStatueTriggerBox Function CheckAnswer
-
 // Begin Class AStatueTriggerBox Function PlaceIntoBox
 struct Z_Construct_UFunction_AStatueTriggerBox_PlaceIntoBox_Statics
 {
@@ -129,7 +100,6 @@ void AStatueTriggerBox::StaticRegisterNativesAStatueTriggerBox()
 {
 	UClass* Class = AStatueTriggerBox::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
-		{ "CheckAnswer", &AStatueTriggerBox::execCheckAnswer },
 		{ "PlaceIntoBox", &AStatueTriggerBox::execPlaceIntoBox },
 		{ "SetRemovedFalse", &AStatueTriggerBox::execSetRemovedFalse },
 	};
@@ -164,9 +134,6 @@ struct Z_Construct_UClass_AStatueTriggerBox_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_present_MetaData[] = {
 		{ "ModuleRelativePath", "StatueTriggerBox.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_statueAnswers_MetaData[] = {
-		{ "ModuleRelativePath", "StatueTriggerBox.h" },
-	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_statues_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_statues;
@@ -174,12 +141,9 @@ struct Z_Construct_UClass_AStatueTriggerBox_Statics
 	static const UECodeGen_Private::FIntPropertyParams NewProp_answer;
 	static void NewProp_present_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_present;
-	static const UECodeGen_Private::FBoolPropertyParams NewProp_statueAnswers_Inner;
-	static const UECodeGen_Private::FArrayPropertyParams NewProp_statueAnswers;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_AStatueTriggerBox_CheckAnswer, "CheckAnswer" }, // 916259255
 		{ &Z_Construct_UFunction_AStatueTriggerBox_PlaceIntoBox, "PlaceIntoBox" }, // 2693767616
 		{ &Z_Construct_UFunction_AStatueTriggerBox_SetRemovedFalse, "SetRemovedFalse" }, // 1816121846
 	};
@@ -198,16 +162,12 @@ void Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_present_SetBit(void* 
 	((AStatueTriggerBox*)Obj)->present = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_present = { "present", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AStatueTriggerBox), &Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_present_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_present_MetaData), NewProp_present_MetaData) };
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_statueAnswers_Inner = { "statueAnswers", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_statueAnswers = { "statueAnswers", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AStatueTriggerBox, statueAnswers), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_statueAnswers_MetaData), NewProp_statueAnswers_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AStatueTriggerBox_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_statues_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_statues,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_removedTimerHandle,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_answer,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_present,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_statueAnswers_Inner,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AStatueTriggerBox_Statics::NewProp_statueAnswers,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AStatueTriggerBox_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AStatueTriggerBox_Statics::DependentSingletons[])() = {
@@ -250,10 +210,10 @@ AStatueTriggerBox::~AStatueTriggerBox() {}
 struct Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_StatueTriggerBox_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AStatueTriggerBox, AStatueTriggerBox::StaticClass, TEXT("AStatueTriggerBox"), &Z_Registration_Info_UClass_AStatueTriggerBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStatueTriggerBox), 3980483282U) },
+		{ Z_Construct_UClass_AStatueTriggerBox, AStatueTriggerBox::StaticClass, TEXT("AStatueTriggerBox"), &Z_Registration_Info_UClass_AStatueTriggerBox, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AStatueTriggerBox), 2217742673U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_StatueTriggerBox_h_2001820102(TEXT("/Script/Escape_Room"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_StatueTriggerBox_h_3225609985(TEXT("/Script/Escape_Room"),
 	Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_StatueTriggerBox_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_StatueTriggerBox_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

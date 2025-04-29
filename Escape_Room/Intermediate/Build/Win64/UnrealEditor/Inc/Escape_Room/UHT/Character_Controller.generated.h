@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define ESCAPE_ROOM_Character_Controller_generated_h
 
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_22_GENERATED_BODY \
+#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_24_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FInventoryItem_Statics; \
 	ESCAPE_ROOM_API static class UScriptStruct* StaticStruct(); \
 	typedef FTableRowBase Super;
@@ -22,7 +22,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 template<> ESCAPE_ROOM_API UScriptStruct* StaticStruct<struct FInventoryItem>();
 
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_56_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_58_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execCheckAnswer); \
 	DECLARE_FUNCTION(execGetRecentlyRemoved); \
 	DECLARE_FUNCTION(execGetRecentlyPickedUp); \
 	DECLARE_FUNCTION(execWielding); \
@@ -33,7 +34,7 @@ template<> ESCAPE_ROOM_API UScriptStruct* StaticStruct<struct FInventoryItem>();
 	DECLARE_FUNCTION(execCollect);
 
 
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_56_INCLASS_NO_PURE_DECLS \
+#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_58_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACharacter_Controller(); \
 	friend struct Z_Construct_UClass_ACharacter_Controller_Statics; \
@@ -42,7 +43,7 @@ public: \
 	DECLARE_SERIALIZER(ACharacter_Controller)
 
 
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_56_ENHANCED_CONSTRUCTORS \
+#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_58_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ACharacter_Controller(ACharacter_Controller&&); \
@@ -54,13 +55,13 @@ public: \
 	NO_API virtual ~ACharacter_Controller();
 
 
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_53_PROLOG
-#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_56_GENERATED_BODY \
+#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_55_PROLOG
+#define FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_58_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_56_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_56_INCLASS_NO_PURE_DECLS \
-	FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_56_ENHANCED_CONSTRUCTORS \
+	FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_58_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_58_INCLASS_NO_PURE_DECLS \
+	FID_Users_Jaber_Documents_GitHub_VR_Escape_Room_Escape_Room_Source_Escape_Room_Character_Controller_h_58_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
