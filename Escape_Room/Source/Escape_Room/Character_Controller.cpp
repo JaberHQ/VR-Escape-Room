@@ -170,6 +170,8 @@ void ACharacter_Controller::RemoveFromInventory()
 	}
 }
 
+
+
 void ACharacter_Controller::Wielding()
 {
 	BlacklightTriggerBoxActive = false;
@@ -202,17 +204,18 @@ void ACharacter_Controller::Wielding()
 				}
 			}
 		}
-		else
-		{
-			Wield = Empty;
-		}
+		
 
-		if(Wield == Empty)
+	}
+	else
+	{
+		Wield = Empty;
+	}
+	if(Wield == Empty)
+	{
+		for(int i = 0; i < PickupableObjects.Num(); i++)
 		{
-			for(int i = 0; i < PickupableObjects.Num(); i++)
-			{
-				WieldObjects[i]->SetActorHiddenInGame(true);
-			}
+			WieldObjects[i]->SetActorHiddenInGame(true);
 		}
 	}
 }

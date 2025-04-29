@@ -73,15 +73,15 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 								trueItem->SetActive(true);
 							}
 						}
-						/*if (answer == 1)
+						if (answer == 1)
 						{
 							statueAnswers[0] = true;
 						}
 						else
 						{
 							statueAnswers[0] = false;
-						}*/
-						answer == 1 ? statueAnswers[0] = true : statueAnswers[0] = false;
+						}
+						//answer == 1 ? statueAnswers[0] = true : statueAnswers[0] = false;
 					}
 					else if(tempItem->name == "Red Statue" && character->Wield.itemID == "3")
 					{
@@ -99,15 +99,15 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 								trueItem->SetActive(true);
 							}
 						}
-						/*if(answer == 2)
+						if(answer == 2)
 						{
 							statueAnswers[1] = true;
 						}
 						else
 						{
 							statueAnswers[1] = false;
-						}*/
-						answer == 2 ? statueAnswers[1] = true : statueAnswers[1] = false;
+						}
+						//answer == 2 ? statueAnswers[1] = true : statueAnswers[1] = false;
 					}
 					else if(tempItem->name == "Green Statue" && character->Wield.itemID == "2")
 					{
@@ -124,14 +124,14 @@ void AStatueTriggerBox::PlaceIntoBox(AActor* overlappedActor, AActor* otherActor
 								trueItem->SetActive(true);
 							}
 						}
-						/*if(answer == 3)
+						if(answer == 3)
 						{
 							statueAnswers[2] = true;
 						}
 						else
 						{
 							statueAnswers[2] = false;
-						}*/
+						}
 						answer == 3 ? statueAnswers[2] = true : statueAnswers[2] = false;
 					}
 					//GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Blue, TEXT("Hi Jaber!"));
